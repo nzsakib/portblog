@@ -13,4 +13,11 @@ class PostController extends Controller
 
         return view('blog.index', compact('posts'));
     }
+
+    public function show($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        return view('blog.show', compact('post'));
+    }
 }
